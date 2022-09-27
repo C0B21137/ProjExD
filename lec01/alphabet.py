@@ -45,8 +45,6 @@ def ans(f_alp):
     else:
         ans(f_alp)
 
-def main():
+if __name__ == "__main__":
     a=que()
     ans(a)
-
-main()
