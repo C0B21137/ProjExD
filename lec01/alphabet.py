@@ -1,5 +1,6 @@
 import random
 import datetime
+import copy
 qw=10
 fn=random.randint(1,9)
 st=datetime.datetime.now()
@@ -15,7 +16,7 @@ def que():
             alp.append(a)
             i+=1
             continue
-    a_alp=alp.copy()
+    a_alp=copy.copy(alp)
     f_alp=[]
     for i in range(fn):
         if i>0:
