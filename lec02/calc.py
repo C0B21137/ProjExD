@@ -50,6 +50,6 @@ for i in s:
 
 button_acl=tk.Button(root,text="AC",font=("",30),width=4,height=2)
 button_acl.bind("<1>",click_acl)
-button_acl.grid(row=2,column=4)
+button_acl.grid(row=0,column=0)
 
 root.mainloop()
