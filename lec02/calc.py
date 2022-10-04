@@ -4,7 +4,8 @@ from turtle import right
 def button_click(event):
     button=event.widget
     number=int(button["text"])
-    tkm.showinfo({number},f"{number}のボタンが押されました。")
+    #tkm.showinfo({number},f"{number}のボタンが押されました。")
+    entry.insert(tk.END,number)
 
 root=tk.Tk()
 root.title("calc")
