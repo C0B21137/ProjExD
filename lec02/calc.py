@@ -13,12 +13,18 @@ def click_eq(event):#＝を押したときの関数
     entry.delete(0,tk.END)
     entry.insert(tk.END,res)
 
+def click_acl(event):
+    entry.delete(0,tk.END)
+
+def click_cl(event):
+    entry.delete(tk.END)
+
 root=tk.Tk()#ウィンドウを作る
 root.title("calc")
-root.geometry("1000x550")
+root.geometry("700x550")
 
 entry=tk.Entry(root,justify="right",width=10,font=("Times New Roma",40))#表示バー
-entry.grid(row=0,column=0,columnspan=3)
+entry.grid(row=0,column=4,columnspan=3)
 
 c=0 #数字のボタン
 for i in range(10):
@@ -37,11 +43,20 @@ button_eq=tk.Button(root,text="=",font=("",30),width=4,height=2)
 button_eq.bind("<1>",click_eq)
 button_eq.grid(row=4,column=2)
 
-s=["-","*","/"]
+s=["-","*","/","%"]
 a=0
 for i in s:
     button_s=tk.Button(root,text=i,font=("",30),width=4,height=2)
     button_s.bind("<1>",button_click)
-    button_s.grid(row=0,column=4+a)
+    button_s.grid(row=1,column=4+a)
     a+=1
+
+button_acl=tk.Button(root,text="AC",font=("",30),width=4,height=2)
+button_acl.bind("<1>",click_acl)
+button_acl.grid(row=2,column=4)
+
+button_acl=tk.Button(root,text="clear",font=("",30),width=4,height=2)
+button_acl.bind("<1>",click_cl)
+button_acl.grid(row=2,column=5)
+
 root.mainloop()
