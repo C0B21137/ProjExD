@@ -18,7 +18,7 @@ def click_acl(event):
 
 root=tk.Tk()#ウィンドウを作る
 root.title("calc")
-root.geometry("700x550")
+root.geometry("600x550")
 
 entry=tk.Entry(root,justify="right",width=10,font=("Times New Roma",40))#表示バー
 entry.grid(row=0,column=4,columnspan=3)
@@ -32,20 +32,26 @@ for i in range(10):
         c+=1
 
 #　+ボタン
-button_p=tk.Button(root,text="+",font=("",30),width=4,height=2)
-button_p.bind("<1>",button_click)
-button_p.grid(row=4,column=1)
+#button_p=tk.Button(root,text="+",font=("",30),width=4,height=2)
+#button_p.bind("<1>",button_click)
+#button_p.grid(row=4,column=1)
+
 #　＝ボタン
 button_eq=tk.Button(root,text="=",font=("",30),width=4,height=2)
 button_eq.bind("<1>",click_eq)
 button_eq.grid(row=4,column=2)
 
-s=["-","*","/","%"]
+s=["+","-","*","/","%"]
 a=0
 for i in s:
-    button_s=tk.Button(root,text=i,font=("",30),width=4,height=2)
-    button_s.bind("<1>",button_click)
-    button_s.grid(row=1,column=4+a)
+    if a==4:
+        button_s=tk.Button(root,text=i,font=("",30),width=4,height=2)
+        button_s.bind("<1>",button_click)
+        button_s.grid(row=1,column=5)
+    else:
+        button_s=tk.Button(root,text=i,font=("",30),width=4,height=2)
+        button_s.bind("<1>",button_click)
+        button_s.grid(row=1+a,column=4)
     a+=1
 
 button_acl=tk.Button(root,text="AC",font=("",30),width=4,height=2)
