@@ -1,5 +1,6 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
+from turtle import right
 def button_click(event):
     button=event.widget
     number=int(button["text"])
@@ -7,9 +8,9 @@ def button_click(event):
 
 root=tk.Tk()
 root.title("calc")
-root.geometry("300x500")
+root.geometry("300x600")
 
-entry=tk.Entry(root,width=10,font=("Times New Roma",40))
+entry=tk.Entry(root,justify="right",width=10,font=("Times New Roma",40))
 entry.grid(columnspan=3)
 
 c=0
