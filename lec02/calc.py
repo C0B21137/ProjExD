@@ -9,11 +9,14 @@ root=tk.Tk()
 root.title("calc")
 root.geometry("300x500")
 
+entry=tk.Entry(root,width=10,font=("Times New Roma",40))
+entry.grid(columnspan=3)
+
 c=0
 for i in range(10):
     button=tk.Button(root,text=9-i,font=("Times New Roman",30),width=4,height=2)
     button.bind=("<1>",button_click)
-    button.grid(row=c,column=i%3)
+    button.grid(row=c+1,column=i%3)
     if i%3==2:
         c+=1
 
