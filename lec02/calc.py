@@ -22,8 +22,12 @@ for i in range(10):
     button.grid(row=c+1,column=i%3)
     if i%3==2:
         c+=1
-button=tk.Button(root,text="+",font=("",30),width=4,height=2)
-button.bind("<1>",button_click)
-button.grid(row=4,column=1)
+button_p=tk.Button(root,text="+",font=("",30),width=4,height=2)
+button_p.bind("<1>",button_click)
+button_p.grid(row=4,column=1)
+
+button_eq=tk.Button(root,text="=",font=("",30),width=4,height=2)
+button_eq.bind("<1>",button_click)
+button_eq.grid(row=4,column=2)
 
 root.mainloop()
