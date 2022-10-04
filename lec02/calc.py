@@ -16,9 +16,6 @@ def click_eq(event):#＝を押したときの関数
 def click_acl(event):
     entry.delete(0,tk.END)
 
-def click_cl(event):
-    entry.delete(tk.END)
-
 root=tk.Tk()#ウィンドウを作る
 root.title("calc")
 root.geometry("700x550")
@@ -54,9 +51,5 @@ for i in s:
 button_acl=tk.Button(root,text="AC",font=("",30),width=4,height=2)
 button_acl.bind("<1>",click_acl)
 button_acl.grid(row=2,column=4)
-
-button_acl=tk.Button(root,text="clear",font=("",30),width=4,height=2)
-button_acl.bind("<1>",click_cl)
-button_acl.grid(row=2,column=5)
 
 root.mainloop()
