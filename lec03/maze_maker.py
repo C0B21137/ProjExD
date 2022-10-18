@@ -33,7 +33,14 @@ def show_maze(canvas, maze_lst):
             canvas.create_rectangle(x*100, y*100, x*100+100, y*100+100, 
                                     fill=color[maze_lst[y][x]])
 
-def key_down(event):
+def key_down(event): #5
+    global key
+    key=event.keysym
+
+def key_up(event): #6
+    global key
+    key=""
+
 
    
 if __name__=="__main__":
@@ -49,5 +56,6 @@ if __name__=="__main__":
 
     key="" #4
 
-    root.bind()
+    root.bind("<KeyPless>",key_down) #5
+    root.bind("<KeyRelease>",key_up) #6
     root.mainloop()
