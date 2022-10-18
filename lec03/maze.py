@@ -1,7 +1,7 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
 import maze_maker as mm #8
-
+import random
 def key_down(event): #5
     global key
     key=event.keysym
@@ -12,38 +12,46 @@ def key_up(event): #6
 
 def main_proc(): #7 #11
     global mx,my
-    global cx,cy,a
+    global cx,cy,tai
     if key=="Up":
         my-=1
+        tai-=1
     if key=="Down":
         my+=1
+        tai-=1
     if key=="Left":
         mx-=1
+        tai-=1
     if key=="Right":
         mx+=1
+        tai-=1
     if maze_list[my][mx]==0:
         cx,cy=mx*100+50,my*100+50
     else:
         if key=="Up":
             my+=1
+            tai+=1
         if key=="Down":
             my-=1
+            tai+=1
         if key=="Left":
             mx+=1
+            tai+=1
         if key=="Right":
             mx-=1
+            tai+=1
     can.coords("tori",cx,cy)    
     if mx==13 and my==7:  
-        tkm.showinfo("goal","goal")  
-        mx==1
-        my==1
+        tkm.showinfo("goal","goal")
+    elif tai==0:
+        tkm.showinfo("終わり","体力切れ！！")
     else:    
         root.after(100,main_proc)
 
 if __name__=="__main__":
+    tai=random.randint(25,30)
     root=tk.Tk()
-    root.title("迷えるこうかとん") #1
-    a=0
+    root.title(f"迷えるこうかとん,体力は{tai}だ！！") #1
 
     can=tk.Canvas(root,width=1500,height=900,bg="black") #2
     can.pack()
