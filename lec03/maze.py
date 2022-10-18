@@ -5,6 +5,9 @@ def key_down(event): #5
     global key
     key=event.keysym
 
+def key_up(event): #6
+    global key
+    key=""
 
 if __name__=="__main__":
     root=tk.Tk()
@@ -20,5 +23,7 @@ if __name__=="__main__":
     key="" #4
 
     root.bind("<KeyPress>",key_down) #5
+
+    root.bind("<KeyRelease>",key_up) #6
 
     root.mainloop()
