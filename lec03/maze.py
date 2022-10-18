@@ -11,4 +11,6 @@ if __name__=="__main__":
     tori=tk.PhotoImage(file="fig/5.png") #3
     cx,cy=300,400
     can.create_image(cx,cy,image=tori,tag="tori")
+
+    key="" #4
     root.mainloop()
