@@ -32,13 +32,22 @@ def show_maze(canvas, maze_lst):
         for x in range(len(maze_lst[y])):
             canvas.create_rectangle(x*100, y*100, x*100+100, y*100+100, 
                                     fill=color[maze_lst[y][x]])
+
+def key_down(event):
+
    
 if __name__=="__main__":
     root=tk.Tk()
-    root.title("迷えるこうかとん")
-    can=tk.Canvas(root,width=1500,height=900,bg="black")
+    root.title("迷えるこうかとん") #1
+
+    can=tk.Canvas(root,width=1500,height=900,bg="black") #2
     can.pack()
-    tori=tk.PhotoImage(file="fig/5.png")
+
+    tori=tk.PhotoImage(file="fig/5.png") #3
     cx,cy=300,400
     can.create_image(cx,cy,image=tori,tag="tori")
+
+    key="" #4
+
+    root.bind()
     root.mainloop()
