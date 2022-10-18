@@ -43,6 +43,6 @@ if __name__=="__main__":
     can.coords("tori",cx,cy) #7
     main_proc()
 
-    maze_list=mm.maze_make(15,9) #9
+    maze_list=mm.make_maze(15,9) #9
     mm.show_maze(can,maze_list) #10
     root.mainloop()
