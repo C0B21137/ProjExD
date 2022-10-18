@@ -9,6 +9,19 @@ def key_up(event): #6
     global key
     key=""
 
+def main_proc(): #7
+    global cx,cy
+    if key=="Up":
+        cy-=20
+    if key=="Down":
+        cy+=20
+    if key=="Left":
+        cx-=20
+    if key=="Right":
+        cx+=20
+    can.coords("tori",cx,cy)
+    root.after(100,main_proc)
+
 if __name__=="__main__":
     root=tk.Tk()
     root.title("迷えるこうかとん") #1
@@ -25,5 +38,7 @@ if __name__=="__main__":
     root.bind("<KeyPress>",key_down) #5
 
     root.bind("<KeyRelease>",key_up) #6
-
+    
+    can.coords("tori",cx,cy) #7
+    main_proc()
     root.mainloop()
