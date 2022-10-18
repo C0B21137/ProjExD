@@ -16,32 +16,35 @@ def main_proc(): #7 #11
     global mx,my
     global cx,cy,tai
     if key=="Up":
-        my-=1
-        tai-=1
-    if key=="Down":
-        my+=1
-        tai-=1
-    if key=="Left":
-        mx-=1
-        tai-=1
-    if key=="Right":
-        mx+=1
-        tai-=1
-    if maze_list[my][mx]==0:
-        cx,cy=mx*100+50,my*100+50
-    else:
-        if key=="Up":
-            my+=1
-            tai+=1
-        if key=="Down":
+        if maze_list[my-1][mx]==0:
             my-=1
-            tai+=1
-        if key=="Left":
-            mx+=1
-            tai+=1
-        if key=="Right":
+            tai-=1
+    if key=="Down":
+        if maze_list[my+1][mx]==0:
+            my+=1
+            tai-=1
+    if key=="Left":
+        if maze_list[my][mx-1]==0:
             mx-=1
-            tai+=1
+            tai-=1
+    if key=="Right":
+        if maze_list[my][mx+1]==0:
+            mx+=1
+            tai-=1
+    cx,cy=mx*100+50,my*100+50
+    # else:
+    #     if key=="Up":
+    #         my+=1
+    #         tai+=1
+    #     if key=="Down":
+    #         my-=1
+    #         tai+=1
+    #     if key=="Left":
+    #         mx+=1
+    #         tai+=1
+    #     if key=="Right":
+    #         mx-=1
+    #         tai+=1
     can.coords("tori",cx,cy)    
     if mx==13 and my==7:  
         tkm.showinfo("goal","goal")
