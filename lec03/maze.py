@@ -2,6 +2,8 @@ import tkinter as tk
 import tkinter.messagebox as tkm
 import maze_maker as mm #8
 import random
+
+
 def key_down(event): #5
     global key
     key=event.keysym
