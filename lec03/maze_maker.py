@@ -36,5 +36,6 @@ def show_maze(canvas, maze_lst):
 if __name__=="__main__":
     root=tk.Tk()
     root.title("迷えるこうかとん")
-
+    can=tk.Canvas(root,width=1500,height=900,bg="black")
+    can.pack()
     root.mainloop()
