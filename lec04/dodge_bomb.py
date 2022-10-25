@@ -2,6 +2,19 @@ import pygame as pg
 import sys
 from random import randint
 
+def check_bound(obj_rect,scr_rect):
+    """
+    obj_rect:こうかとんor 爆弾のrect
+    scr_rct:スクリーンrect
+    """
+    yoko,tate=+1,+1
+    if obj_rect.left<scr_rect.left or scr_rect.right<obj_rect.right:
+        yoko=-1
+    if obj_rect.top<scr_rect.top or scr_rect.bottom<obj_rect.bottom:
+        tate=-1
+
+    return yoko,tate
+
 def main():
     pg.display.set_caption("逃げろ!こうかとん")
     scrn_sfc=pg.display.set_mode((1600,900))
@@ -27,14 +40,6 @@ def main():
 
     while True:
         scrn_sfc.blit(bg_sfc,bg_rect)
-        scrn_sfc.blit(tori_sfc,tori_rct)
-        bomb_rect.move_ip(vx,vy)
-        scrn_sfc.blit(bomb_sfc,bomb_rect)
-        pg.display.update()
-        clock.tick(1000)
-        for event in pg.event.get():
-            if event.type==pg.QUIT:
-                return
         
         key_states=pg.key.get_pressed()
         if key_states[pg.K_UP]: #こうかとんの縦座標を＋１
@@ -45,6 +50,35 @@ def main():
             tori_rct.centerx-=1
         if key_states[pg.K_RIGHT]:
             tori_rct.centerx+=1
+        yoko,tate=check_bound(tori_rct,scrn_rct)
+        if yoko==-1 :
+            if key_states[pg.K_LEFT]:
+                tori_rct.centerx+=1
+            if key_states[pg.K_RIGHT]:
+                tori_rct.centerx-=1
+        if tate==-1:
+            if key_states[pg.K_UP]: #こうかとんの縦座標を＋１
+                tori_rct.centery+=1
+            if key_states[pg.K_DOWN]:
+                tori_rct.centery-=1
+        scrn_sfc.blit(tori_sfc,tori_rct)
+
+        yoko,tate=check_bound(bomb_rect,scrn_rct)
+        vx*=yoko
+        vy*=tate
+        bomb_rect.move_ip(vx,vy)
+        scrn_sfc.blit(bomb_sfc,bomb_rect)
+
+        if tori_rct.colliderect(bomb_rect):
+            return
+
+        pg.display.update()
+        clock.tick(1000)
+
+        for event in pg.event.get():
+            if event.type==pg.QUIT:
+                return
+
         
 
 
