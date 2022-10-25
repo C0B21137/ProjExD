@@ -5,8 +5,8 @@ import time
 import tkinter as tk
 import tkinter.messagebox as tkm
 
-a=0
-b=0
+red_num=0
+blue_num=0
 def check_bound(obj_rect,scr_rect): # 壁にぶつかったかどうかの判定をする関数
     """
     obj_rect:こうかとんor 爆弾のrect
@@ -21,7 +21,7 @@ def check_bound(obj_rect,scr_rect): # 壁にぶつかったかどうかの判定
     return yoko,tate
 
 def main(): # メイン関数
-    global a,b
+    global red_num,blue_num
     root=tk.Tk()
     root.withdraw()
     start=time.time()
@@ -82,10 +82,10 @@ def main(): # メイン関数
 
         yoko,tate=check_bound(bomb_rect,scrn_rct)
         if yoko==-1 or tate==-1: #赤い球が壁にぶつかったら位置をランダムで再生成
-            a+=1
-            if a%5==0:
+            red_num+=1
+            if red_num%5==0:
                 bomb_rect.centerx=randint(0,scrn_rct.width)
-            if a%6==0:
+            if red_num%6==0:
                 bomb_rect.centery=randint(0,scrn_rct.height)
         vx*=yoko
         vy*=tate
@@ -94,10 +94,10 @@ def main(): # メイン関数
 
         yoko,tate=check_bound(bomb_rect2,scrn_rct)
         if yoko==-1 or tate==-1: #黒い球が壁にぶつかったら位置をランダムで再生成
-            b+=1
-            if b%7==0:
+            blue_num+=1
+            if blue_num%7==0:
                 bomb_rect2.centerx=randint(0,scrn_rct.width)
-            if b%11==0:
+            if blue_num%11==0:
                 bomb_rect2.centery=randint(0,scrn_rct.height)
         fx*=yoko
         fy*=tate
