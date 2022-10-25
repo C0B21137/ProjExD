@@ -21,11 +21,14 @@ def main():
     bomb_rect=bomb_sfc.get_rect()
     bomb_rect.centerx=randint(0,scrn_rct.width)
     bomb_rect.centery=randint(0,scrn_rct.height)
+
+    vx,vy=+1,+1
     clock=pg.time.Clock()
 
     while True:
         scrn_sfc.blit(bg_sfc,bg_rect)
         scrn_sfc.blit(tori_sfc,tori_rct)
+        bomb_rect.move_ip(vx,vy)
         scrn_sfc.blit(bomb_sfc,bomb_rect)
         pg.display.update()
         clock.tick(1000)
