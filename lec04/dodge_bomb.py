@@ -7,6 +7,7 @@ import tkinter.messagebox as tkm
 
 red_num=0
 blue_num=0
+
 def check_bound(obj_rect,scr_rect): # 壁にぶつかったかどうかの判定をする関数
     """
     obj_rect:こうかとんor 爆弾のrect
