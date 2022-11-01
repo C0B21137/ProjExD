@@ -107,6 +107,7 @@ class reborn: #追加機能３　再生成
 #     key_delta = {
 #         pg.K_SPACE
 #         }
+s
 #     def __init__(self,bir:Bird):
 #         self.sfc=pg.surface((10,10))
 #         self.sfc=set_colorkey=((0,0,0))
@@ -118,7 +119,6 @@ class reborn: #追加機能３　再生成
 
 #     def v(self):
 #         self.vy+=1
-
 
 
 def check_bound(obj_rct, scr_rct):
