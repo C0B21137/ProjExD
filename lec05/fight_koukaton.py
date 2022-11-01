@@ -139,10 +139,8 @@ def main():
     time=Time() # 時間表示
     # 練習1
     scr = Screen("逃げろ！こうかとん", (1600, 900), "fig/pg_bg.jpg")
-
     # 練習3
     kkt = Bird("fig/6.png", 2.0, (900, 400))
-
     # 練習5
     bkd = Bomb((255, 0, 0), 10, (+1, +1), scr)
 
